@@ -1,0 +1,13 @@
+{% load reviews %}
+
+<h4>{{ category.name }} </h4>
+
+<div>
+    <ul>
+    {% for item in category %}
+        <li>
+            <a href="">{{ item.name }}</a>
+        </li
+    {% endfor %}
+    </ul>
+</div>

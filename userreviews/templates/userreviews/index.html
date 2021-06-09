@@ -1,6 +1,7 @@
-<h3>Restaurants</h3>
+<h3>Categories</h3>
+
 <ul>
-    {% for r in restaurants %}
-        <li><a href="{% url 'userreviews:restaurant' r.id %}">{{ r.name }} </a></li>
+    {% for category in categories %}
+        <li><a href="{% url 'userreviews:category' category.id %}">{{ category.name }} </a></li>
     {% endfor %}
 </ul>
