@@ -5,9 +5,12 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
-class Restaurant(models.Model):
+class Item(models.Model):
     name = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
+    location = models.CharField(max_length=100)
+    telephone = models.CharField(max_length=50)
+    description = models.TextField(max_length=300)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -1,0 +1,20 @@
+{% load reviews %}
+
+<h4>{{ item.name }} </h4>
+<address>
+    {{ item.location }}<br>
+    {{ item.telephone }}<br>
+    {{ item.description }}
+</address>
+
+<hr>
+<div>
+    <h3>Reviews</h3>
+    {% render_review_list for item %}
+</div>
+
+{% if user.is_authenticated %}
+    <div>please leave your review
+    {% render_review_form for item %}
+    </div>
+{% endif %}
