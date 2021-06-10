@@ -1,20 +1,17 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'reviews/css/reviews.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'reviews/css/star-rating.css' %}">
 {% load reviews %}
+<h1>{{ item.name }} </h1>
+<span> {{ item.description }} . {{ item.location }} </span>
 
-<h4>{{ item.name }} </h4>
-<address>
-    {{ item.location }}<br>
-    {{ item.telephone }}<br>
-    {{ item.description }}
-</address>
-
-<hr>
 <div>
-    <h3>Reviews</h3>
-    {% render_review_list for item %}
+    <a href="{% url 'userreviews:evaluate' item.id %}">Write a review</a>
 </div>
 
-{% if user.is_authenticated %}
-    <div>please leave your review
-    {% render_review_form for item %}
-    </div>
-{% endif %}
+<hr>
+{% get_review_count for item as review_count %}
+<h2>Reviews {{ review_count }}</h2>
+<div>
+    {% render_review_list for item %}
+</div>
