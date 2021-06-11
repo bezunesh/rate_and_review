@@ -1,2 +1,6 @@
 {% load reviews %}
-{% render_review_form for item %}
+{% if user.is_authenticated %}
+    {% render_review_form for item %}
+{% else %}
+    <p>Login in to write a review</p>
+{% endif %}

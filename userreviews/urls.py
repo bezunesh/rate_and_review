@@ -7,5 +7,6 @@ urlpatterns = [
     path('category/<int:category_id>', views.category, name='category'),
     path('item/<int:item_id>', views.item, name='item'),
     path('evaluate/<int:item_id>', views.evaluate, name='evaluate'),
+    path('login', views.login, name='login')
     #path(r'^reviews/', include('reviews.urls')),
 ]
