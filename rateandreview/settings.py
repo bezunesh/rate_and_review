@@ -127,3 +127,6 @@ STATIC_FILES_DIR = [
     os.path.join(BASE_DIR, 'reviews/static/'),
     os.path.join(BASE_DIR, 'userreviews/static/'),
 ]
+
+# The default URL to redirect to when login is successful
+LOGIN_REDIRECT_URL = '/app/'
