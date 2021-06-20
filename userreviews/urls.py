@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 app_name='userreviews'
@@ -7,6 +8,6 @@ urlpatterns = [
     path('category/<int:category_id>', views.category, name='category'),
     path('item/<int:item_id>', views.item, name='item'),
     path('evaluate/<int:item_id>', views.evaluate, name='evaluate'),
-    path('login', views.login, name='login')
+    path('login', auth_views.LoginView.as_view(), name='login')
     #path(r'^reviews/', include('reviews.urls')),
 ]
