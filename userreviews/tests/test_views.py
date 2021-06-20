@@ -10,3 +10,4 @@ class ViewTestCase(TestCase):
         '''
         response = self.client.get(reverse('userreviews:login'))
         self.assertIsInstance(response, HttpResponse)
+        
