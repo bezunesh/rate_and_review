@@ -1,7 +1,12 @@
 - outline basic features 
     - view a rating a review
     - add a rating and a review
-    - authentication
+    - authentication 
+        - login form
+        - authenticate and redirect
+        - logout
+        - signup
+        - password change
 - implement basic features
 - add tests
 - design basic UI

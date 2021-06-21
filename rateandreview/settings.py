@@ -130,3 +130,6 @@ STATIC_FILES_DIR = [
 
 # The default URL to redirect to when login is successful
 LOGIN_REDIRECT_URL = '/app/'
+
+# The default URL to redirect to when logout is successful
+LOGOUT_REDIRECT_URL = '/app/'

@@ -20,3 +20,6 @@ def item(request, item_id):
 def evaluate(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
     return render(request, 'userreviews/evaluate.html', {'item': item})
+
+def signup(request):
+    return render(request, 'registration/sign_up.html')   
