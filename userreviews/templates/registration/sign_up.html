@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block main %}
     <div class="row">
-        <div class="col-md-8 order-md-1">
-          <h4 class="p-2">Create New Account</h4>
+        <div class="col-md-8 order-md-1 signup">
+          <h4 class="p-2">Sign up</h4>
           <form class="needs-validation input-form p-4" novalidate="" method="post" action="{% url 'userreviews:signup' %}">
              {% csrf_token %}
              <div class="row">
@@ -31,7 +31,9 @@
                     {{ form.email }}
                     {{ form.email.errors }}
                 </div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Create New Account</button>               
+                <div class="col-12">
+                    <button class="btn btn-primary btn-lg btn-block signup" type="submit">Sign up</button> 
+                </div>             
              </div>
           </form>
       </div>

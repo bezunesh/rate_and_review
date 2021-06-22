@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Category, Item
+from .forms import SignupForm
 
 def index(request):
     categories = Category.objects.all()
@@ -22,4 +23,5 @@ def evaluate(request, item_id):
     return render(request, 'userreviews/evaluate.html', {'item': item})
 
 def signup(request):
-    return render(request, 'registration/sign_up.html')   
+    form = SignupForm()
+    return render(request, 'registration/sign_up.html', {'form': form})   
