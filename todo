@@ -5,7 +5,7 @@
         - login form
         - authenticate and redirect
         - logout
-        - signup
+        - signup - make email required for signup
         - password change
 - implement basic features
 - add tests

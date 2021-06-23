@@ -133,3 +133,6 @@ LOGIN_REDIRECT_URL = '/app/'
 
 # The default URL to redirect to when logout is successful
 LOGOUT_REDIRECT_URL = '/app/'
+
+# Substitute the defalut auth user model
+AUTH_USER_MODEL = 'userreviews.User'

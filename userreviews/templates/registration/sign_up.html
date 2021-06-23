@@ -5,7 +5,7 @@
           <h4 class="p-2">Sign up</h4>
           <form class="needs-validation input-form p-4" novalidate="" method="post" action="{% url 'userreviews:signup' %}">
              {% csrf_token %}
-             <div class="row">
+             <!--<div class="row">
                 <div class="col-md-6 mb-3">      
                     <label for="{{ form.first_name.id_for_label }}">First Name</label>
                     {{ form.first_name }}
@@ -15,7 +15,7 @@
                     <label for="{{ form.first_name.id_for_label }}">Last Name</label>
                     {{ form.last_name }}
                     {{ form.last_name.errors }}
-                </div>
+                </div>-->
                  <div class="col-md-6 mb-3">    
                     <label for="{{ form.username.id_for_label }}">Username</label>
                     {{ form.username }}

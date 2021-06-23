@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.urls import reverse
 from .models import Category, Item
 from .forms import SignupForm
 
@@ -23,5 +26,18 @@ def evaluate(request, item_id):
     return render(request, 'userreviews/evaluate.html', {'item': item})
 
 def signup(request):
-    form = SignupForm()
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            #firstName = form.cleaned_data['first_name']
+            #lastName = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+
+            User.objects.create_user(username, email=email, password=password)
+            messages.add_message(request, messages.INFO, "User account created successfully!")
+            return HttpResponseRedirect(reverse('userreviews:login'))
+    else:
+        form = SignupForm()
     return render(request, 'registration/sign_up.html', {'form': form})   

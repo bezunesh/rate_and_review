@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from django.contrib.auth.models import User
+from .models import User
 
 def addCssFormControl(form):
     for field in form.fields:
@@ -11,4 +11,4 @@ class SignupForm(ModelForm):
         addCssFormControl(self)
     class Meta:
         model = User
-        fields = ['username', 'password', 'first_name', 'last_name', 'email']
+        fields = ['username', 'password','email']
