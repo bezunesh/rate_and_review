@@ -16,8 +16,3 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
-class User(AbstractUser):
-    email = models.EmailField('email address', blank=False)
-    
-    class Meta:
-        db_table = 'auth_user'

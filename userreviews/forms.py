@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import User
+from django.contrib.auth.models import User
 
 def addCssFormControl(form):
     for field in form.fields:
