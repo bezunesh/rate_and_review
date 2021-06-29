@@ -20,7 +20,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: echo '$NAME'
+          command: "echo '$NAME'"
 
 workflows:
   # Name the workflow "welcome"
