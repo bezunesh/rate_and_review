@@ -17,13 +17,13 @@ def category(request, category_id):
     return render(request, 'userreviews/category.html', {'items': items})
 
 def item(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
+    obj = get_object_or_404(Item, pk=item_id)
     
-    return render(request, 'userreviews/item.html', {'item': item})
+    return render(request, 'userreviews/item.html', {'item': obj})
 
 def evaluate(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
-    return render(request, 'userreviews/evaluate.html', {'item': item})
+    obj = get_object_or_404(Item, pk=item_id)
+    return render(request, 'userreviews/evaluate.html', {'item': obj})
 
 def signup(request):
     if request.method == 'POST':

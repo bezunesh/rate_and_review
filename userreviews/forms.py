@@ -3,7 +3,7 @@ from .models import User
 
 def addCssFormControl(form):
     for field in form.fields:
-       form.fields[field].widget.attrs.update({'class': 'form-control'})
+        form.fields[field].widget.attrs.update({'class': 'form-control'})
 
 class SignupForm(ModelForm):
     def __init__(self, *args, **kwargs):

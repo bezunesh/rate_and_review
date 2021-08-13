@@ -1,0 +1,17 @@
+setup:
+	# create a virtual environment and activate it
+	python3 -m venv .venv
+	source .venv/bin/activate
+
+install:
+	# install dependecies
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
+migrate:
+	# run database migrations
+	python manage.py migrate
+	
+lint:
+	# run pylint 
+	# hadolint Dockerfile
+	pylint --disable=R,C,W0613,E1101 userreviews/
