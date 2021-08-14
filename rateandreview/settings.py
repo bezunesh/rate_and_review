@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # added this to make the review app work
     'django.contrib.sites', 
     'reviews',
-    'userreviews.apps.UserreviewsConfig'
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -135,4 +135,5 @@ LOGIN_REDIRECT_URL = '/app/'
 LOGOUT_REDIRECT_URL = '/app/'
 
 # Substitute the defalut auth user model
-AUTH_USER_MODEL = 'userreviews.User'
+# AUTH_USER_MODEL = 'userreviews.User'
+AUTH_USER_MODEL = 'users.CustomUser'
