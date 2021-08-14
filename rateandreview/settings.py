@@ -125,15 +125,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_FILES_DIR = [
     os.path.join(BASE_DIR, 'reviews/static/'),
-    os.path.join(BASE_DIR, 'userreviews/static/'),
+    os.path.join(BASE_DIR, 'users/static/'),
 ]
 
 # The default URL to redirect to when login is successful
-LOGIN_REDIRECT_URL = '/app/'
+LOGIN_REDIRECT_URL = 'home'
 
 # The default URL to redirect to when logout is successful
-LOGOUT_REDIRECT_URL = '/app/'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Substitute the defalut auth user model
-# AUTH_USER_MODEL = 'userreviews.User'
+#AUTH_USER_MODEL = 'userreviews.User'
 AUTH_USER_MODEL = 'users.CustomUser'
