@@ -9,6 +9,7 @@ install:
 		pip install -r requirements.txt
 migrate:
 	# run database migrations
+	python manage.py makemigrations
 	python manage.py migrate
 	
 lint:
