@@ -14,5 +14,5 @@ migrate:
 	
 lint:
 	# run pylint 
-	# hadolint Dockerfile
+	hadolint Dockerfile
 	pylint --disable=R,C,W0613,E1101 userreviews/
