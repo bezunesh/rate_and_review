@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # added this to make the review app work
-    'django.contrib.sites', 
+    
+    'django.contrib.sites', # added this to make the review app work
     'reviews',
-    'users'
+    'users',
+    'userreviews'
 ]
 
 MIDDLEWARE = [

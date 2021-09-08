@@ -1,0 +1,13 @@
+
+{% if user.is_authenticated %}
+    Logout
+{% else %}
+    <a href="{% url 'userreviews:login' %}">Login</a> or <a href="{% url 'userreviews:signup' %}">Signup</a> 
+{% endif %}
+
+<h3>Categories</h3>
+<ul>
+    {% for category in categories %}
+        <li><a href="{% url 'userreviews:category' category.id %}">{{ category.name }} </a></li>
+    {% endfor %}
+</ul>

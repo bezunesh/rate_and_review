@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block main %}
+    <div class="row">
+        <div class="col-md-8 order-md-1 signup">
+          <h4 class="p-2">Sign up</h4>
+          <form class="needs-validation input-form p-4" novalidate="" method="post" action="{% url 'userreviews:signup' %}">
+             {% csrf_token %}
+             <!--<div class="row">
+                <div class="col-md-6 mb-3">      
+                    <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                    {{ form.first_name }}
+                    {{ form.first_name.errors }}
+                </div>
+                <div class="col-md-6 mb-3">      
+                    <label for="{{ form.first_name.id_for_label }}">Last Name</label>
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+                </div>-->
+                 <div class="col-md-6 mb-3">    
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="col-md-6 mb-3">    
+                    <label for="{{ form.password.id_for_label }}">Password</label>
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div> 
+                <div class="col-md-6 mb-3">    
+                    <label for="{{ form.first_name.id_for_label }}">Email</label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary btn-lg btn-block signup" type="submit">Sign up</button> 
+                </div>             
+             </div>
+          </form>
+      </div>
+  </div>
+{% endblock main %}

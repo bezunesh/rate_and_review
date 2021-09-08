@@ -1,0 +1,17 @@
+{% load reviews %}
+
+<h4>{{ category.name }} </h4>
+
+{% if items %}
+    <div>
+        <ul>
+        {% for item in items %}
+            <li>
+                <a href="{% url 'userreviews:item' item.id %}">{{ item.name }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <p>No items found for this cateogry.</p>
+{% endif %}
