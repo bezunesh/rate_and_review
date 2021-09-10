@@ -1,6 +1,12 @@
+{% extends 'base.html' %}
 {% load reviews %}
+
+{% block title %} {{ item.name }} {% endblock %}
+
+{% block content %}
 {% if user.is_authenticated %}
     {% render_review_form for item %}
 {% else %}
     <p>Login in to write a review</p>
 {% endif %}
+{% endblock %}

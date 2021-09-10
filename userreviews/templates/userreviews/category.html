@@ -1,5 +1,9 @@
+{% extends 'base.html' %}
 {% load reviews %}
 
+{% block title %} Category {% endblock %}
+
+{% block content %}
 <h4>{{ category.name }} </h4>
 
 {% if items %}
@@ -15,3 +19,4 @@
 {% else %}
     <p>No items found for this cateogry.</p>
 {% endif %}
+{% endblock %}

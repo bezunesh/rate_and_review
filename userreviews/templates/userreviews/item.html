@@ -1,8 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
+{% load reviews %}
+
+{% block title %} {{ item.name }} {% endblock %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'reviews/css/reviews.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'reviews/css/star-rating.css' %}">
-{% load reviews %}
-<h1>{{ item.name }} </h1>
+
+{% block content %}
+<h4>{{ item.name }} </h4>
 <span> {{ item.description }} . {{ item.location }} </span>
 
 <div>
@@ -11,7 +17,8 @@
 
 <hr>
 {% get_review_count for item as review_count %}
-<h2>Reviews {{ review_count }}</h2>
+<h4>Reviews {{ review_count }}</h4>
 <div>
     {% render_review_list for item %}
 </div>
+{% endblock %}
