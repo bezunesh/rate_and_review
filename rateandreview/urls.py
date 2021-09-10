@@ -6,6 +6,7 @@ from userreviews import views
 urlpatterns = [
     #path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('', views.index, name='index'),
+   # path('admin/logout', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),
     path('reviews/', include('userreviews.urls')),
     path('reviews/', include('reviews.urls')),

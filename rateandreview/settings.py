@@ -130,10 +130,10 @@ STATIC_FILES_DIR = [
 ]
 
 # The default URL to redirect to when login is successful
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'index'
 
 # The default URL to redirect to when logout is successful
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'index'
 
 # Substitute the defalut auth user model
 #AUTH_USER_MODEL = 'userreviews.User'
