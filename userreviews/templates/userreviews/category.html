@@ -6,17 +6,19 @@
 {% block content %}
 <h4>{{ category.name }} </h4>
 
-{% if items %}
-    <div>
-        <ul>
-        {% for item in items %}
-            <li>
+<div class="container">
+    <div class="row ">
+        
+        {% if items %}
+            {% for item in items %}
+            <div class="col-lg-3 col-md-6">
                 <a href="{% url 'userreviews:item' item.id %}">{{ item.name }}</a>
-            </li>
-        {% endfor %}
-        </ul>
+            </div>
+            % endfor %}
+        {% else %}
+            <p>No items found for this cateogry.</p>
+        {% endif %}
+
     </div>
-{% else %}
-    <p>No items found for this cateogry.</p>
-{% endif %}
+</div>
 {% endblock %}
