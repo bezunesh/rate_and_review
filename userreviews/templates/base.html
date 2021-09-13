@@ -30,12 +30,11 @@
                 <a class="nav-link" href="">{{ 'Profile'|upper}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">{{ 'Log Out'|upper}}</a>
+                <a class="nav-link" href="{% url 'logout' %}">{{ 'Log Out'|upper}}</a>
               </li>
             {% else %}
               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'users:login' %}">{{ 'Login'|upper}}</a> or 
-                  <a class="nav-link" href="{% url 'users:signup' %}">{{ 'Sign Up'|upper}}</a> 
+                  <a class="nav-link" href="{% url 'login' %}">{{ 'Login'|upper}}</a> or 
               </li>
             {% endif %}
             </li> 
