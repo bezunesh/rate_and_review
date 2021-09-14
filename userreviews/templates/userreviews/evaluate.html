@@ -4,9 +4,21 @@
 {% block title %} {{ item.name }} {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    {% render_review_form for item %}
-{% else %}
-    <p>Login in to write a review</p>
-{% endif %}
+<div class="container">
+    <div class="row ">
+        <div class="col">
+            <div class="item-container">
+                <h4>{{ item.name }} </h4>
+                <span> {{ item.description }} . {{ item.location }} </span>
+            </div>
+            <div class="rating-box">
+                {% if user.is_authenticated %}
+                    {% render_review_form for item %}
+                {% else %}
+                    <p>Login in to write a review</p>
+                {% endif %}
+            </div>
+     </div>
+    </div>
+</div>
 {% endblock %}
