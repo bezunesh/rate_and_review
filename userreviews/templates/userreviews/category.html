@@ -15,11 +15,11 @@
         {% if items %}
             {% for item in items %}
             <div>
-                <a href=""><h4>{{ item.name }} </h4></a>
+                <a href="{% url 'userreviews:item' item.id %}"><h4>{{ item.name }} </h4></a>
                 <span> {{ item.description }} . {{ item.location }} </span>
 
                 {% get_review_count for item as review_count %}
-                <div><strong><a href="">{{ review_count }} Reviews </a></strong></div>
+                <div><strong><a href="{% url 'userreviews:item' item.id %}">{{ review_count }} Reviews </a></strong></div>
             </div>
             <hr>
             {% endfor %}

@@ -8,17 +8,26 @@
 <link rel="stylesheet" type="text/css" href="{% static 'reviews/css/star-rating.css' %}">
 
 {% block content %}
-<h4>{{ item.name }} </h4>
-<span> {{ item.description }} . {{ item.location }} </span>
+<div class="container">
+    <div class="row ">
+        <div class="col-2">
+            SideBar
+        </div>
+        <div class="col-10">
+            <h4>{{ item.name }} </h4>
+            <span> {{ item.description }} . {{ item.location }} </span>
 
-<div>
-    <a href="{% url 'userreviews:evaluate' item.id %}">Write a review</a>
-</div>
-
-<hr>
-{% get_review_count for item as review_count %}
-<h4>Reviews {{ review_count }}</h4>
-<div>
-    {% render_review_list for item %}
+            <div>
+                <a href="{% url 'userreviews:evaluate' item.id %}">Write a review</a>
+            </div>
+            
+            <hr>
+            {% get_review_count for item as review_count %}
+            <h4>Reviews {{ review_count }}</h4>
+            <div>
+                {% render_review_list for item %}
+            </div>
+     </div>
+    </div>
 </div>
 {% endblock %}
