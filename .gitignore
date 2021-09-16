@@ -1,9 +1,14 @@
 *__pycache__
 db.sqlite3
-static/
-media/
+
+/userreviews/static/userreviews/*
+!/userreviews/static/userreviews/css/
+/userreviews/static/userreviews/css/*
+!/userreviews/static/userreviews/css/style.css
+
+/media/
 *.env
 *.json
 venv
 .venv
-userreviews/migrations
+/userreviews/migrations
