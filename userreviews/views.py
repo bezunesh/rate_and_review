@@ -24,3 +24,6 @@ def item(request, item_id):
 def evaluate(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
     return render(request, 'userreviews/evaluate.html', {'item': item}) 
+
+def reviewPosted(request):
+    return render(request, 'userreviews/review_posted.html', {'msg': 'Thank you! Your review was posted, it will be live soon.'})

@@ -13,15 +13,15 @@
             </div>
             <div class="rating-box">
                 {% if user.is_authenticated %}
+
                     {% get_review_form for item as form %}
-                
-                      <form action="{% review_form_target %}" method="post">
+                    <form action="{% review_form_target %}" method="post">
                         {% csrf_token %}
                         {{ form }}
-                        
+                        <input type="hidden" name="next" value="{% url 'userreviews:review_was_posted' %}" />
                         <input type="submit" name="submit" value="Post">
-                         
-                      </form>
+
+                    </form>
                 {% else %}
                     <p>Login in to write a review</p>
                 {% endif %}
