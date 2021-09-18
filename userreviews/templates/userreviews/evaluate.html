@@ -17,10 +17,14 @@
                     {% get_review_form for item as form %}
                     <form action="{% review_form_target %}" method="post">
                         {% csrf_token %}
-                        {{ form }}
+                        <div class="row">
+                            <div class="col-12"> <label for="{{ form.rating.id_for_label }}">Rate your recent experience</label></div>
+                            <div class="col-12">{{ form.rating }}{{ form.rating.errors }}</div>
+                            <div class="col-12"><label for="{{ form.comment.id_for_label }}">Tell us about your experience</label></div>
+                            <div class="col-12">{{ form.comment }}{{ form.comment.errors }}</div>    
+                            <div class="col-12"><input type="submit" name="submit" value="Post"></div>
+                        </div>
                         <input type="hidden" name="next" value="{% url 'userreviews:review_was_posted' %}" />
-                        <input type="submit" name="submit" value="Post">
-
                     </form>
                 {% else %}
                     <p>Login in to write a review</p>
