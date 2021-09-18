@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load reviews %}
-
+{% load reviews i18n %}
 {% block title %} {{ item.name }} {% endblock %}
 
 {% block content %}
@@ -13,19 +13,7 @@
             </div>
             <div class="rating-box">
                 {% if user.is_authenticated %}
-
-                    {% get_review_form for item as form %}
-                    <form action="{% review_form_target %}" method="post">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-12"> <label for="{{ form.rating.id_for_label }}">Rate your recent experience</label></div>
-                            <div class="col-12">{{ form.rating }}{{ form.rating.errors }}</div>
-                            <div class="col-12"><label for="{{ form.comment.id_for_label }}">Tell us about your experience</label></div>
-                            <div class="col-12">{{ form.comment }}{{ form.comment.errors }}</div>    
-                            <div class="col-12"><input type="submit" name="submit" value="Post"></div>
-                        </div>
-                        <input type="hidden" name="next" value="{% url 'userreviews:review_was_posted' %}" />
-                    </form>
+                    {% render_review_form for item %}
                 {% else %}
                     <p>Login in to write a review</p>
                 {% endif %}
