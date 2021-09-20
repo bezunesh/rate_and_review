@@ -155,7 +155,7 @@ msgstr ""
 
 #: reviews/templates/reviews/form.html:17
 msgid "Post"
-msgstr ""
+msgstr "Post review"
 
 #: reviews/templates/reviews/posted.html:3
 #: reviews/templates/reviews/posted.html:6

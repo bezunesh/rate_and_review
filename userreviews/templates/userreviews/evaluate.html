@@ -13,7 +13,27 @@
             </div>
             <div class="rating-box">
                 {% if user.is_authenticated %}
-                    {% render_review_form for item %}
+                        {% get_review_form for item as form %}
+                        <form action="{% review_form_target %}" method="post">{% csrf_token %}
+                                <input type="hidden" name="next" value="{% url 'userreviews:review_was_posted' %}"/>
+                                {% for field in form %}
+                                {% if field.is_hidden %}
+                                    {{ field }}
+                                {% else %}
+                                    {% if field.errors %}{{ field.errors }}{% endif %}
+                                    <p{% if field.errors %} class="error"{% endif %}{% if field.name == "honeypot" %} style="display:none;"{% endif %}>
+                                    {{ field.label_tag }} {{ field }}
+                                    </p>
+                                {% endif %}
+                                {% endfor %}
+                                <p class="submit">
+                                <input type="submit" name="post" class="submit-post" value="{% trans "Post" %}"/>
+                                </p>
+                        </form>
+                        {{ form.media }}
+                        <script>
+                        var starRatingControls = new StarRating('#id_rating', {clearable: false, showText: {{ show_rating_text|yesno:"true,false" }}, initialText: '{% trans "Select a rating" %}'});
+                        </script>
                 {% else %}
                     <p>Login in to write a review</p>
                 {% endif %}
