@@ -6,9 +6,10 @@ db.sqlite3
 /userreviews/static/userreviews/css/*
 !/userreviews/static/userreviews/css/style.css
 
-/media/
+/media
 *.env
 *.json
 venv
 .venv
 /userreviews/migrations
+/reviews

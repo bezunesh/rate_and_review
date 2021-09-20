@@ -35,7 +35,10 @@
                         var starRatingControls = new StarRating('#id_rating', {clearable: false, showText: {{ show_rating_text|yesno:"true,false" }}, initialText: '{% trans "Select a rating" %}'});
                         </script>
                 {% else %}
-                    <p>Login in to write a review</p>
+                    <p>To write a review you need to: </p>
+                     <p><a class="nav-link inline btn-primary" href="{% url 'login' %}">{{ 'Login'}}</a>  or
+                        <a class="nav-link inline btn-primary" href="{% url 'users:signup' %}">{{ 'Sign Up'}}</a>
+                    </p>
                 {% endif %}
             </div>
      </div>
