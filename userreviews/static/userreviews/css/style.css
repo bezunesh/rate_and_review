@@ -228,3 +228,11 @@ textarea, div>select{
 #id_comment{
   display: block;
 }
+
+p>label{
+  font-weight: 700;
+}
+.gl-star-rating[data-star-rating] { 
+  display: block !important;
+  margin-bottom: 20px
+}

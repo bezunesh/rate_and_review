@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-19 23:27-0400\n"
+"POT-Creation-Date: 2021-09-19 23:36-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: reviews/admin.py:30 reviews/forms.py:105
 msgid "Rating"
-msgstr ""
+msgstr "Rate your recent experience"
 
 #: reviews/admin.py:45 reviews/models.py:29
 msgid "rating"
@@ -81,7 +81,7 @@ msgstr ""
 #: reviews/forms.py:104 reviews/templates/reviews/form.html:25
 #: userreviews/templates/userreviews/rating_box_backup.html:22
 msgid "Select a rating"
-msgstr ""
+msgstr "Rate your recent experience"
 
 #. Translators: 'Comment' is a noun here.
 #: reviews/forms.py:109
