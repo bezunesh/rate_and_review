@@ -176,10 +176,10 @@ h1, h2, h3, h4, h5, h6 {
 .header-title {
   padding-bottom: 20px
 }
-.item-container {
+.form-title {
   text-align: center;
 }
-.rating-box {
+.centered-box {
     background-color: #f8f9fa;
     padding: 20px;
     width: 510px;
@@ -187,8 +187,8 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px auto;
 }
 
-textarea, div>select{
-  display: block;
+textarea, div>select, input{
+    display: block;
     width: 100%;
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -202,7 +202,7 @@ textarea, div>select{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.submit-post {
+.submit-btn {
   color: #fff;
   background-color: #e9865e;
   display: block;
@@ -217,7 +217,7 @@ textarea, div>select{
   border-radius: .25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-}
+
 .btn-primary{
   margin-top: 20px;
 }
@@ -235,4 +235,7 @@ p>label{
 .gl-star-rating[data-star-rating] { 
   display: block !important;
   margin-bottom: 20px
+}
+#sign-up li, .helptext{
+  font-size: smaller;
 }

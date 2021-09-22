@@ -7,11 +7,11 @@
 <div class="container">
     <div class="row ">
         <div class="col">
-            <div class="item-container">
+            <div class="form-title">
                 <h4>{{ item.name }} </h4>
                 <span> {{ item.description }} . {{ item.location }} </span>
             </div>
-            <div class="rating-box">
+            <div class="centered-box ">
                 {% if user.is_authenticated %}
                         {% get_review_form for item as form %}
                         <form action="{% review_form_target %}" method="post">{% csrf_token %}
@@ -27,7 +27,7 @@
                                 {% endif %}
                                 {% endfor %}
                                 <p class="submit">
-                                <input type="submit" name="post" class="submit-post" value="{% trans "Post" %}"/>
+                                <input type="submit" name="post" class="submit-btn" value="{% trans "Post" %}"/>
                                 </p>
                         </form>
                         {{ form.media }}
