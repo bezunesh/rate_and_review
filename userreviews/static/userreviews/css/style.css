@@ -163,8 +163,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .category-card {
   padding: 20px;
-  background-color: brown;
+  background-color: #f8f9fa;
   text-align: center;
+  font-weight: 700;
 }
 .category-section {
   background-color: #dcdce6;
@@ -174,8 +175,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-title {
-  padding-bottom: 20px
+  padding-bottom: 20px;
+  margin-left: 1rem;
 }
+
 .form-title {
   text-align: center;
 }
@@ -238,4 +241,13 @@ p>label{
 }
 #sign-up li, .helptext{
   font-size: smaller;
+}
+.item-box{
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: .25em;
+  margin-bottom: 20px;
+}
+.review-count {
+  font-size: small;
 }

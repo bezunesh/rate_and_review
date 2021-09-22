@@ -7,21 +7,20 @@
 <h4>{{ category.name }} </h4>
 
 <div class="container">
-    <div class="row ">
-        <div class="col-2">
-            SideBar
-        </div>
-        <div class="col-10">
+    <div class="row">
+        <div class="col">
         {% if items %}
             {% for item in items %}
-            <div>
-                <a href="{% url 'userreviews:item' item.id %}"><h4>{{ item.name }} </h4></a>
-                <span> {{ item.description }} . {{ item.location }} </span>
+            <div class="item-box">
+                <a href="{% url 'userreviews:item' item.id %}"><h5>{{ item.name }} </h4></a>
+                <p><span> {{ item.description }} . {{ item.location }} </span></p>
 
                 {% get_review_count for item as review_count %}
-                <div><strong><a href="{% url 'userreviews:item' item.id %}">{{ review_count }} Reviews </a></strong></div>
+                <p><strong>
+                    <a href="{% url 'userreviews:item' item.id %}" class="review-count">{{ review_count }} Reviews </a>
+                </strong>
+                </p>
             </div>
-            <hr>
             {% endfor %}
         {% else %}
             <p>No items found for this cateogry.</p>
