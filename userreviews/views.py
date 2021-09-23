@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 #from django.contrib.auth.models import User
 from django.contrib import messages
@@ -6,7 +6,7 @@ from django.urls import reverse
 from .models import Category, Item
 #from .forms import SignupForm
 
-def index(request):
+def index(request, msg=""):
     categories = Category.objects.all()
     return render(request, 'userreviews/index.html', {'categories': categories})
 
@@ -26,4 +26,5 @@ def evaluate(request, item_id):
     return render(request, 'userreviews/evaluate.html', {'item': item}) 
 
 def reviewPosted(request):
-    return render(request, 'userreviews/review_posted.html', {'msg': 'Thank you! Your review was posted, it will be live soon.'})
+    categories = Category.objects.all()
+    return render(request, 'userreviews/review_posted.html', {'categories': categories, 'msg': 'Thank you! Your review was posted, it will be live soon.'})

@@ -9,21 +9,30 @@
 
 {% block content %}
 <div class="container">
+    <div class="text-center p-4">
+        <h2>{{ item.name }} </h4>
+        <span> {{ item.description }} . {{ item.location }} </span>
+       
+    </div>
+    <hr>
+    <p class="text-right">
+        <a href="{% url 'userreviews:evaluate' item.id %}" class="btn btn-primary">Write a review</a>
+    </p>
     <div class="row">
         <div class="col">
-            <h4>{{ item.name }} </h4>
-            <span> {{ item.description }} . {{ item.location }} </span>
-
-            <div>
-                <a href="{% url 'userreviews:evaluate' item.id %}">Write a review</a>
-            </div>
-            
-            <hr>
             {% get_review_count for item as review_count %}
-            <h4>Reviews {{ review_count }}</h4>
-            <div>
-                {% render_review_list for item %}
-            </div>
+            <h4>Reviews ( {{ review_count }} )</h4>
+            {% get_review_list for item as review_list %}
+            {% for review in review_list %}
+                <div class="item-box">
+                    <dt id="r{{ review.id }}">
+                        {{ review.submit_date }} - {{ review.user }}
+                      </dt>
+                      <dd>
+                        <p>{{ review.comment|linebreaks }}</p>
+                      </dd>
+                </div>
+            {% endfor %}
      </div>
     </div>
 </div>
