@@ -6,6 +6,14 @@ from django.urls import reverse
 from .models import Category, Item
 #from .forms import SignupForm
 
+def home(request):
+    # temporarily set manually for first version
+    category_banks_id = 11
+    category = get_object_or_404(Category, pk=category_banks_id)
+
+    items = Item.objects.filter(category_id=category_banks_id)
+    return render(request, 'userreviews/category.html', {'category': category, 'items': items})
+
 def index(request, msg=""):
     categories = Category.objects.all()
     return render(request, 'userreviews/index.html', {'categories': categories})

@@ -1,5 +1,9 @@
 body {
   color: #808f9e;
+  background-color: #f8f9fa;
+}
+header {
+  background-color: #000000;
 }
 .blog-header {
   line-height: 1;
@@ -243,14 +247,18 @@ p>label{
   font-size: smaller;
 }
 .item-box{
-  background-color: #f8f9fa;
-  padding: 10px;
+  background-color: #ffffff;
   border-radius: .25em;
-  margin-bottom: 20px;
+  max-width: 900px;
+  margin: auto
 }
 .review-count {
   font-size: small;
 }
 .msg{
   font-weight: 700;
+}
+.title-box{
+  max-width: 900px;
+  margin: auto;
 }
