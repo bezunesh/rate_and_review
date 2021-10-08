@@ -11,8 +11,7 @@
 <div class="container">
     <div class="text-center p-4">
         <h2>{{ item.name }} </h4>
-        <span> {{ item.description }} . {{ item.location }} </span>
-       
+        <span>{{ item.location }} </span>  
     </div>
     <hr>
     <p class="text-right">
@@ -21,7 +20,7 @@
     <div class="row">
         <div class="col">
             {% get_review_count for item as review_count %}
-            <h4>Reviews ( {{ review_count }} )</h4>
+            <div class="title-box"><h4>Reviews ( {{ review_count }} )</h4></div>
             {% get_review_list for item as review_list %}
             {% for review in review_list %}
                 <div class="item-box">
