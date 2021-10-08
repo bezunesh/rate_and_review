@@ -1,6 +1,8 @@
 body {
-  color: #808f9e;
+  color: #6f6f87;
   background-color: #f8f9fa;
+  font-family: TrustpilotDefaultFont,Arial,sans-serif;
+  font-size: 16px;
 }
 header {
   background-color: #000000;
@@ -250,7 +252,12 @@ p>label{
   background-color: #ffffff;
   border-radius: .25em;
   max-width: 900px;
-  margin: auto
+  margin: auto;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 .review-count {
   font-size: small;
