@@ -14,11 +14,12 @@ header {
 .navbar-logo {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
   font-size: 2rem;
-  color: #ffffff;
+  color: #f3ad13;
   text-decoration: none;
 }
 a:hover {
   text-decoration: none;
+  color: #fbb51ae8;
 }
 a {
   color: #1b1b21;
@@ -31,8 +32,8 @@ a {
 }
 .btn-primary, .btn-primary:hover {
   color: #fff;
-  background-color: #e9865e;
-  border-color: #e9865e;
+  background-color: #f3ad13;
+  border-color: #f3ad13;
 }
 .login{
   margin: auto;
@@ -213,7 +214,7 @@ textarea, div>select, input{
 
 .submit-btn {
   color: #fff;
-  background-color: #e9865e;
+  background-color: #f3ad13;
   display: block;
   width: 100%;
   height: calc(1.5em + .75rem + 2px);
@@ -272,4 +273,7 @@ p>label{
 
 .logo-box{
   padding-bottom: 10px;
+}
+.company-logo {
+ max-width: 180px;
 }
