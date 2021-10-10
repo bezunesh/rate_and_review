@@ -12,6 +12,7 @@ class Item(models.Model):
     telephone = models.CharField(max_length=50)
     description = models.TextField(max_length=300)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    logo = models.ImageField(upload_to='logo', default='default.png')
 
     def __str__(self):
         return self.name

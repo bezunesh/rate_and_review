@@ -136,6 +136,10 @@ STATIC_FILES_DIR = [
     os.path.join(BASE_DIR, 'users/static/'),
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
 # The default URL to redirect to when login is successful
 LOGIN_REDIRECT_URL = 'index'
 

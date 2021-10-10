@@ -25,7 +25,7 @@ a {
   color: #1b1b21;
 }
 .nav-link {
-  color: #000000!
+  color: #f3ad13;
 }
 .input-form {
   background-color: #f8f9fa;
@@ -276,4 +276,7 @@ p>label{
 }
 .company-logo {
  max-width: 180px;
+}
+.navbar-container{
+  max-width: 960px;
 }
