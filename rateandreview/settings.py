@@ -141,10 +141,10 @@ MEDIA_URL = '/media/'
 
 
 # The default URL to redirect to when login is successful
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'home'
 
 # The default URL to redirect to when logout is successful
-LOGOUT_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Substitute the defalut auth user model
 #AUTH_USER_MODEL = 'userreviews.User'

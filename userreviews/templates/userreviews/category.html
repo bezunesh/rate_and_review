@@ -14,17 +14,20 @@
             {% for item in items %}
             <div class="row item-box">
                 <div class="col-md-4 text-center logo-box">
-                    <img class="img-fluid company-logo" src="/media/{{ item.logo }}" alt="{{ item.name }} ">
+                    <a href="{% url 'userreviews:item' item.id %}">
+                        <img class="img-fluid company-logo" src="/media/{{ item.logo }}" alt="{{ item.name }} ">
+                    </a>
                 </div>
                 <div class="col-md-8">
-                    <a href="{% url 'userreviews:item' item.id %}"><h5>{{ item.name }} </h4></a>
-                    <p><strong>
-                        {% get_review_count for item as review_count %}
-                        <a href="{% url 'userreviews:item' item.id %}" class="review-count">( {{ review_count }} ) Reviews </a>
-                    </strong>
-                    </p>   
-                    <p><span> <strong>Location:</strong> {{ item.location }} </span></p>
+                    <a href="{% url 'userreviews:item' item.id %}"><h4>{{ item.name }} </h4>
+                        <p><strong>
+                            {% get_review_count for item as review_count %}
+                            <a href="{% url 'userreviews:item' item.id %}" class="review-count">( {{ review_count }} ) Reviews </a>
+                        </strong>
+                        </p>   
+                        <p><span> <strong>Location:</strong> {{ item.location }} </span></p>
                     {% get_review_count for item as review_count %}
+                    </a>
                 </div>
             </div>
             {% endfor %}

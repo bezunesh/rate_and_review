@@ -28,7 +28,7 @@ a {
   color: #1b1b21;
 }
 .nav-link {
-  color: #f3ad13;
+  color: #f3ad13 !important;
 }
 .input-form {
   background-color: #f8f9fa;
