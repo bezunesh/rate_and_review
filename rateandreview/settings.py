@@ -173,5 +173,5 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 
 ACCOUNT_FORMS = {
-    'signup': 'users.forms.CustomUserCreationForm',
+    'signup': 'users.forms.CustomUserCreationForm'
 }
