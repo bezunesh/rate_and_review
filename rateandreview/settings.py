@@ -34,15 +34,20 @@ SITE_ID=1 # added this to make the review app work
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', # added this to make the review app work
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+
     'reviews',
     'users',
     'userreviews',
@@ -163,6 +168,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = 'users.CustomUser'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
@@ -174,4 +180,16 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 ACCOUNT_FORMS = {
     'signup': 'users.forms.CustomUserCreationForm'
+}
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline',
+        }
+    }
 }
