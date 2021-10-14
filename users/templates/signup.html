@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load socialaccount %}
+
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
@@ -13,7 +14,7 @@
         
           <ul class="navbar-nav">
             <li class="nav-item m-auto">
-              <a class="btn btn-primary" href="{% provider_login_url 'facebook' %}">Continue with Facebook</a>
+              <a class="btn btn-primary" href="{% provider_login_url 'facebook' method="oauth2" %}">Continue with Facebook</a>
             </li>
             <li class="nav-item m-auto">
               <a class="btn btn-primary" href="{% provider_login_url 'google' %}">Continue with Google</a>
