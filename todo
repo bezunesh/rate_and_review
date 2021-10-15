@@ -1,15 +1,5 @@
-- outline basic features 
-    - view a rating a review
-    - add a rating and a review
-    - authentication 
-        - login form
-        - authenticate and redirect
-        - logout
-        - signup - make email required for signup
-        - password change
-- implement basic features
+* UI change needed for : after review page: /reviews/reviews/posted/?r=10
 - add tests
-- design basic UI
 - deploy on AWS
 - Go Live V1 and Advertise
 
