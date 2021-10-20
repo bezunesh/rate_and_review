@@ -168,7 +168,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 #AUTH_USER_MODEL = 'userreviews.User'
 AUTH_USER_MODEL = 'users.CustomUser'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
