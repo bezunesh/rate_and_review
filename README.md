@@ -1,6 +1,6 @@
 # Rate and Review
 
-A web application tool which allows customers to rate and review local businesses in Ethiopia. The main goal of the project is to help users make informed purchase decisions while encouraging businesses to provide quality services.
+A web application tool which allows customers to rate and review local businesses. The main goal of the project is to help users make informed purchase decisions while encouraging businesses to provide quality services.
 
 ## Prerequisites
 
