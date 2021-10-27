@@ -6,13 +6,21 @@ from django.urls import reverse
 from .models import Category, Item
 #from .forms import SignupForm
 
-def home(request):
+def getBankCategory():
     # temporarily set manually for first version
     category_banks_id = 11
     category = get_object_or_404(Category, pk=category_banks_id)
 
     items = Item.objects.filter(category_id=category_banks_id)
-    return render(request, 'userreviews/category.html', {'category': category, 'items': items})
+    return {'category': category, 'items': items}
+
+def home(request):
+    return render(request, 'userreviews/category.html', getBankCategory())
+
+def reviewPosted(request):
+    msg = {'msg': 'Thank you! Your review was posted, it will be live soon.'}
+    return render(request, 'userreviews/review_posted.html',  getBankCategory() | msg)
+    
 
 def index(request, msg=""):
     categories = Category.objects.all()
@@ -32,7 +40,3 @@ def item(request, item_id):
 def evaluate(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
     return render(request, 'userreviews/evaluate.html', {'item': item}) 
-
-def reviewPosted(request):
-    categories = Category.objects.all()
-    return render(request, 'userreviews/review_posted.html', {'categories': categories, 'msg': 'Thank you! Your review was posted, it will be live soon.'})
