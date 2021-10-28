@@ -2,6 +2,8 @@
     - after review page: /reviews/reviews/posted/?r=10 - done
     - /accounts/confirm-email/
     - /accounts/confirm-email/
+    - /accounts/email/
+    - /accounts/* - check
 - add tests
 - deploy on AWS
 - Go Live V1 and Advertise
