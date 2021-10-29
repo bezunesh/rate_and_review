@@ -3,7 +3,7 @@
     - /accounts/confirm-email/
     - /accounts/confirm-email/
     - /accounts/email/
-    - /accounts/* - check
+    - /accounts/* - update the remaining templates
 - add tests
 - deploy on AWS
 - Go Live V1 and Advertise
