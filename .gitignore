@@ -7,6 +7,7 @@ db.sqlite3
 !/userreviews/static/userreviews/css/style.css
 
 /media
+/static
 *.env
 *.json
 venv
