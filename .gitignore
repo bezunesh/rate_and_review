@@ -11,7 +11,8 @@ db.sqlite3
 *.json
 venv
 .venv
-/userreviews/migrations
+/userreviews/migrations/*
+!/userreviews/migrations/__init__.py
 /reviews
 *.pem
 *.crt
