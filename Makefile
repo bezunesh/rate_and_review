@@ -1,21 +1,20 @@
+all: setup  migrate collect_static
+
 setup:
-	# create a virtual environment and activate it
 	python3 -m venv .venv
-	source .venv/bin/activate
+	. .venv/bin/activate && \
+	pip install --upgrade pip && \
+    pip install -r requirements.txt
 
-install:
-	# install dependecies
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
 migrate:
-	# run database migrations
-	python manage.py makemigrations
-	python manage.py migrate
-	
-lint:
-	# run pylint 
-	hadolint Dockerfile
-	pylint --disable=R,C,W0613,E1101 userreviews/
+	# Run database migrations
+	. .venv/bin/activate && \
+	python3 manage.py migrate
 
+run_dev:
+	# Run development server
+	python3 manage.py runserver 0.0.0.0:8080
 
-# TODO: add a symlink creating action to the reviews app: needed for the locale files
+collect_static:
+	. .venv/bin/activate && \
+	python3 manage.py collectstatic --noinput

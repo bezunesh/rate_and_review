@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    server_name www.rateth.com rateth.com; 
+
+    location /static/ {
+	root /home/ubuntu/project/rate_and_review;
+    }
+
+    location / {
+        include proxy_params; 
+        proxy_pass http://unix:/home/ubuntu/project/rate_and_review/rating_app.sock;
+    }
+  }
