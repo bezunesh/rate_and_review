@@ -1,10 +1,6 @@
 *__pycache__
 db.sqlite3
 
-/userreviews/static/userreviews/*
-!/userreviews/static/userreviews/css/
-/userreviews/static/userreviews/css/*
-!/userreviews/static/userreviews/css/style.css
 
 /media
 /static
