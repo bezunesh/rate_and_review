@@ -9,6 +9,7 @@ setup:
 migrate:
 	# Run database migrations
 	. .venv/bin/activate && \
+	python3 manage.py makemigrations userreviews
 	python3 manage.py migrate
 
 run_dev:
