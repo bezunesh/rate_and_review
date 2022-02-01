@@ -5,7 +5,7 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/project/rate_and_review
-ExecStart=/home/ubuntu/project/rate_and_review/.venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/project/rate_and_review/resume_app.sock rateandreview.wsgi:application
+ExecStart=/home/ubuntu/project/rate_and_review/.venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/project/rate_and_review/rateandreview.sock rateandreview.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
