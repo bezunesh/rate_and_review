@@ -1,7 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .serializers import CategorySerialzer, ItemSerializer
+from .serializers import CategorySerialzer, ItemSerializer, ReviewSerializer
 from userreviews.models import Category, Item
+from reviews.models import Review
 
 @api_view(['GET'])
 def getCategories(request):
@@ -34,7 +35,10 @@ def getItem(request, item_id):
     serializer = ItemSerializer(item)
     return Response(serializer.data)
 
-# todo: getReviews for an item
-# todo: getRatings for an item
-
+@api_view(['GET'])
+def getReviews(request, item_id):
+    item = Item.objects.get(id=item_id)
+    reviews = item.reviews.all()
+    serializer = ReviewSerializer(reviews, many=True)
+    return Response(serializer.data)
     
