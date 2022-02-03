@@ -1,7 +1,14 @@
 # Rate and Review
 
-A web application tool which allows customers to rate and review local businesses. The main goal of the project is to help users make informed purchase decisions while encouraging businesses to provide quality services.
+A web application that allows users to rate and review Businesses. The main goal of the project is to help users make informed decisions while encouraging businesses to provide quality services.
 
+Additionally, it provides an API for the following usecases:
+
+- Get business categories
+- Get category info
+- Get business info
+- Get reviews of a business
+  
 ## Prerequisites
 
 - Python 3.9
