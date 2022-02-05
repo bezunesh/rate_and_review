@@ -1,72 +1,68 @@
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.decorators import api_view
-from rest_framework import status
-from .serializers import CategorySerialzer, ItemSerializer, ReviewSerializer
 from userreviews.models import Category, Item
 from reviews.models import Review
+from .serializers import CategorySerialzer, ItemSerializer, ReviewSerializer
 from django.http import Http404
+from rest_framework import mixins, generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-class CategoryList(APIView):
+class CategoryList(mixins.ListModelMixin, 
+                   mixins.CreateModelMixin,
+                   generics.GenericAPIView):
     """
     List all categories or create a category
     """
-    def get(self, request):
-        categories = Category.objects.all()
-        serializer = CategorySerialzer(categories, many=True)
-        return Response(serializer.data)
-    
-    def post(self, request):
-        serializer = CategorySerialzer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = Category.objects.all()
+    serializer_class = CategorySerialzer
 
-class CategoryDetail(APIView):
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+    
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+class CategoryDetail(mixins.RetrieveModelMixin, 
+                    generics.GenericAPIView):
     """
     Retrive, update or delete a category
     """
-    def get(self, request, category_id):
-        try:
-            category = Category.objects.get(id=category_id)
-        except Category.DoesNotExist:
-            raise Http404
-        serializer = CategorySerialzer(category)
-        return Response(serializer.data)
+    queryset = Category.objects.all()
+    serializer_class = CategorySerialzer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
 
-class ItemList(APIView):
+class ItemList(mixins.ListModelMixin, generics.GenericAPIView):
     """ List all items of a single category """
-    def get(self, request, category_id):
-        items = Item.objects.filter(category=category_id)
-        serializer = ItemSerializer(items, many=True)
-        return Response(serializer.data)
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
 
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
-def getItemByPk(pk):
-        try:
-            return Item.objects.get(pk=pk)
-        except Item.DoesNotExist:
-            raise Http404
-
-class ItemDetail(APIView):
+class ItemDetail(mixins.RetrieveModelMixin, generics.GenericAPIView):
     """ 
     Retreive, add, update or delete an item.
     """
-    def get(self, request, item_id):
-        item = getItemByPk(tem_id)
-        serializer = ItemSerializer(item)
-        return Response(serializer.data)
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+    lookup_field = 'id'
 
-    
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
 class ItemReviews(APIView):
     """ 
     Retrive, add, update of delete item reviews
     """
-    def get(self, request, item_id):
-        item = getItemByPk(item_id)
+    def get(self, request, pk):
+        try:
+            item = Item.objects.get(pk=pk)
+        except Item.DoesNotExist:
+            raise Http404
         reviews = item.reviews.all()
         serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data)
+    
     
