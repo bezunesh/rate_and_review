@@ -22,7 +22,7 @@ class CategoryList(mixins.ListModelMixin,
         return self.create(request, *args, **kwargs)
 
 class CategoryDetail(mixins.RetrieveModelMixin, 
-                    generics.GenericAPIView):
+                     generics.GenericAPIView):
     """
     Retrive, update or delete a category
     """
@@ -33,36 +33,41 @@ class CategoryDetail(mixins.RetrieveModelMixin,
         return self.retrieve(request, *args, **kwargs)
 
 
-class ItemList(mixins.ListModelMixin, generics.GenericAPIView):
+class ItemList(mixins.ListModelMixin, 
+               generics.GenericAPIView):
     """ List all items of a single category """
-    queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
     def get(self, request, *args, **kwargs):
+        self.queryset = Item.objects.filter(category_id = kwargs['category_id'])
         return self.list(request, *args, **kwargs)
 
-class ItemDetail(mixins.RetrieveModelMixin, generics.GenericAPIView):
+class ItemDetail(mixins.RetrieveModelMixin,
+                 generics.GenericAPIView):
     """ 
     Retreive, add, update or delete an item.
     """
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-    lookup_field = 'id'
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
 
-class ItemReviews(APIView):
-    """ 
-    Retrive, add, update of delete item reviews
+class ItemReviews(mixins.ListModelMixin, 
+                  generics.GenericAPIView):
     """
-    def get(self, request, pk):
+    List, add, update or delete review of an item.
+    """
+    serializer_class = ReviewSerializer
+
+    def get_object(self, pk):
         try:
-            item = Item.objects.get(pk=pk)
+            return Item.objects.get(pk=pk)
         except Item.DoesNotExist:
             raise Http404
-        reviews = item.reviews.all()
-        serializer = ReviewSerializer(reviews, many=True)
-        return Response(serializer.data)
-    
+
+    def get(self, request, *args, **kwargs):
+        item = self.get_object(kwargs['pk'])
+        self.queryset = item.reviews.all()
+        return self.list(request, *args, **kwargs)
     
