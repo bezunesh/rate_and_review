@@ -2,9 +2,8 @@ from userreviews.models import Category, Item
 from reviews.models import Review
 from .serializers import CategorySerialzer, ItemSerializer, ReviewSerializer
 from django.http import Http404
-from rest_framework import mixins, generics
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework import generics
+
 
 class CategoryList(generics.ListCreateAPIView):
     """
