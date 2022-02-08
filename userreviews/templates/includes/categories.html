@@ -2,7 +2,7 @@
 {% load static %}
 
 <div class="container">
-    <p class="title-box msg">{{ msg }}</p>
+    <p class="title-box msg">{% if msg %} {{ msg }} {% endif %}</p>
     <div class="title-box"><h1>{{ category.name }}</h1></div>
     <div class="row">
         <div class="col">

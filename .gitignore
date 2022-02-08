@@ -14,3 +14,4 @@ venv
 *.pem
 *.crt
 *.key
+debug.log

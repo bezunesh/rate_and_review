@@ -229,3 +229,22 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv('EMAIL_ADDRESS')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PWD')
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_ADDRESS')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
