@@ -1,9 +1,12 @@
 from userreviews.models import Category, Item
 from reviews.models import Review
-from .serializers import CategorySerialzer, ItemSerializer, ReviewSerializer
+from .serializers import CategorySerialzer, ItemSerializer, ReviewSerializer, URLPatternSerializer
 from django.http import Http404
 from rest_framework import generics
-
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from . import urls
+from django.http import JsonResponse
 
 class CategoryList(generics.ListCreateAPIView):
     """
@@ -11,6 +14,8 @@ class CategoryList(generics.ListCreateAPIView):
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerialzer
+
+    
 
 class CategoryDetail(generics.RetrieveAPIView):
     """
@@ -47,4 +52,12 @@ class ItemReviews(generics.ListAPIView):
         except Item.DoesNotExist:
             raise Http404
         return item.reviews.all()
-    
+
+
+@api_view(['GET'])
+def apiList(request):
+    """
+        List of available API endpoints
+    """
+    serializer = URLPatternSerializer(urls.urlpatterns, many=True)
+    return Response(serializer.data)
