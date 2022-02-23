@@ -15,11 +15,10 @@ class CategoryList(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerialzer
 
-    
 
-class CategoryDetail(generics.RetrieveAPIView):
+class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrive, update or delete a category
+    Retrieve, update or delete a category
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerialzer
@@ -32,17 +31,17 @@ class ItemList(generics.ListAPIView):
     def get_queryset(self):
         return Item.objects.filter(category_id = self.kwargs['category_id'])
 
-class ItemDetail(generics.RetrieveAPIView):
+class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
     """ 
-    Retreive, add, update or delete an item.
+    Retreive, update or delete an item.
     """
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
-    
 
+    
 class ItemReviews(generics.ListAPIView):
     """
-    List, add, update or delete review of an item.
+    List reviews of an item.
     """
     serializer_class = ReviewSerializer
 
@@ -60,4 +59,5 @@ def apiList(request):
         List of available API endpoints
     """
     serializer = URLPatternSerializer(urls.urlpatterns, many=True)
+   
     return Response(serializer.data)
