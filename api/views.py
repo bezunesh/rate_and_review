@@ -35,7 +35,7 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class ItemList(generics.ListCreateAPIView):
     """ 
-    List all items of a single category or create an item of a category
+    List all items of a single category or create an item for a category.
     """
     serializer_class = ItemSerializer
     
