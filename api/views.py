@@ -8,6 +8,15 @@ from rest_framework.decorators import api_view
 from . import urls
 from django.http import JsonResponse
 
+@api_view(['GET'])
+def apiList(request):
+    """
+        List of available API endpoints
+    """
+    serializer = URLPatternSerializer(urls.urlpatterns, many=True)
+    return Response(serializer.data)
+
+
 class CategoryList(generics.ListCreateAPIView):
     """
     List all categories or create a category
@@ -24,12 +33,15 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CategorySerialzer
 
 
-class ItemList(generics.ListAPIView):
-    """ List all items of a single category """
+class ItemList(generics.ListCreateAPIView):
+    """ 
+    List all items of a single category or create an item of a category
+    """
     serializer_class = ItemSerializer
     
     def get_queryset(self):
         return Item.objects.filter(category_id = self.kwargs['category_id'])
+
 
 class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
     """ 
@@ -38,7 +50,7 @@ class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
-    
+
 class ItemReviews(generics.ListAPIView):
     """
     List reviews of an item.
@@ -51,13 +63,3 @@ class ItemReviews(generics.ListAPIView):
         except Item.DoesNotExist:
             raise Http404
         return item.reviews.all()
-
-
-@api_view(['GET'])
-def apiList(request):
-    """
-        List of available API endpoints
-    """
-    serializer = URLPatternSerializer(urls.urlpatterns, many=True)
-   
-    return Response(serializer.data)
