@@ -16,7 +16,6 @@ def listCategories(request):
 
 @api_view(['POST'])
 def addCategory(request):
-    print(request)
     serializer = CategorySerializer(data=JSONParser().parse(request))
     if serializer.is_valid():
         serializer.save()
