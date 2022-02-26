@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../rate_and_review/.venv/lib/python3.9/site-packages/rest_framework"
+		}
+	],
+	"settings": {}
+}
