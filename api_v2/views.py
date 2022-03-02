@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .serializers import CategorySerializer, ItemSerializer
+from .serializers import CategorySerializer, ItemSerializer, ReviewSerializer
 from userreviews.models import Category, Item
+from reviews.models import Review
 
 @api_view(['GET', 'POST'])
 def categories(request, pk=None):
@@ -42,3 +43,11 @@ def items(request, pk=None):
             serializer.save()
             return Response(serializer.data)
         return Response({'errors': serializer.errors})
+
+
+@api_view(['GET'])
+def reviews(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    serializer = ReviewSerializer(item.reviews, many=True)
+
+    return Response(serializer.data)
