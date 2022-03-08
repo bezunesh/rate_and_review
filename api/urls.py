@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('item/<int:pk>', views.ItemDetail().as_view(), name="Retreive an item by id, update or delete"),
     path('items/category/<int:category_id>', views.ItemList.as_view(), name="List all items of a single category or create an item for a category"),
     path('item/reviews/<int:pk>', views.ItemReviews.as_view(), name="List all reviews of an item"),
+    path('', include('rest_framework.urls'))
 ]
